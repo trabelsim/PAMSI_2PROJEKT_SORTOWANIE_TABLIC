@@ -40,6 +40,14 @@ void Zbuduj_Kopiec ( T *tablica, size_t rozmiar) {
 }
 
 
+template <typename T>
+void Sortuj_Kopiec (T *tablica, size_t rozmiar){
+    while(rozmiar > 1) {
+        tablica[1] = tablica[rozmiar - 1];
+        Sprawdz_WezelGlowny(tablica, 1, --rozmiar);
+    }
+}
+
 
 
 int main(void) {
@@ -51,4 +59,10 @@ int main(void) {
     }
     Wyswietl_Tablice(tablica,rozmiar);             // Wywolanie funkcji Wyswietl Tablice z argumentami - tablica oraz rozmiar 10.
     Zbuduj_Kopiec(tablica,rozmiar);
+    Sortuj_Kopiec(tablica,rozmiar);
+    Wyswietl_Tablice(tablica,rozmiar);
+
+    delete [] tablica;
+
+    return 0;
 }
